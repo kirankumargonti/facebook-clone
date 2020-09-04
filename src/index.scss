@@ -1,0 +1,385 @@
+// Sass Variables
+$main_bg: #ffffff;
+$box_shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
+$box_shadow_one: 0 5px 17px -7px rgba(0, 0, 0, 0.75);
+$search_bg: #eef3f8;
+$brand_color: #2e81f4;
+$icon_color: #808080;
+$icon_hover: #eff2f5;
+$sidebar_hover_color: #d3d3d3;
+$facebook_body_bg: #f0f2f5;
+
+@mixin displayCenter($value) {
+  display: flex;
+  align-items: center;
+  justify-content: $value;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.active {
+  border-bottom: 3px solid $brand_color !important;
+  background-color: transparent !important;
+  &:hover {
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+  .MuiSvgIcon-root {
+    color: $brand_color !important;
+  }
+}
+
+// Facebook-Body
+.app {
+  background-color: $facebook_body_bg;
+}
+
+.facebook-body {
+  @include displayCenter(space-between);
+  align-items: flex-start;
+}
+
+// Header
+
+.header {
+  padding: 5px 20px;
+  @include displayCenter(space-between);
+  background-color: $main_bg;
+  position: sticky;
+  z-index: 1000;
+  box-shadow: $box_shadow;
+
+  .header-left {
+    @include displayCenter(space-between);
+    img {
+      height: 40px;
+    }
+    .header-search {
+      background-color: $search_bg;
+      @include displayCenter(center);
+      margin-left: 10px;
+      padding: 10px;
+      border-radius: 33px;
+      input {
+        font-size: 15px;
+        border: none;
+        outline-width: 0;
+        background-color: transparent;
+        padding: 0 5px;
+      }
+    }
+  }
+  .header-middle {
+    @include displayCenter(center);
+    flex: 1;
+
+    .header-option {
+      padding: 5px 30px;
+      cursor: pointer;
+      @include displayCenter(space-between);
+      border-bottom: 3px solid transparent;
+      &:hover {
+        background-color: $icon_hover;
+        border-radius: 10px;
+        .MuiSvgIcon-root {
+          color: $brand_color;
+        }
+      }
+      .MuiSvgIcon-root {
+        color: $icon_color;
+      }
+    }
+  }
+  .header-right {
+    @include displayCenter(space-between);
+    .user-info {
+      @include displayCenter(center);
+      h4 {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+// Sidebar
+.sidebar {
+  padding: 25px 10px;
+  flex: 0.33;
+}
+// SidebarRow
+
+.sidebar-row {
+  @include displayCenter(inherit);
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: $sidebar_hover_color;
+    border-radius: 10px;
+  }
+
+  h4 {
+    font-weight: 600;
+    margin-left: 20px;
+  }
+
+  .MuiSvgIcon-root {
+    color: $brand_color;
+    font-size: xx-large;
+  }
+}
+
+// Feed
+.feed {
+  @include displayCenter(center);
+  flex-direction: column;
+  padding: 30px 150px;
+  flex: 1;
+}
+
+// StoryReel
+.story-reel {
+  @include displayCenter(space-between);
+}
+// Story
+
+.story {
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 128px;
+  height: 200px;
+  box-shadow: $box_shadow_one;
+  border-radius: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 100ms ease-in;
+
+  &::before {
+    position: absolute;
+    border-radius: 10px;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  &:hover {
+    transform: scale(1.07);
+  }
+  .story-avatar {
+    margin: 10px;
+    border: 3px solid $brand_color;
+  }
+  h4 {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $main_bg;
+  }
+}
+
+// MessageSender
+.message-sender {
+  display: flex;
+  background-color: $main_bg;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: $box_shadow;
+  width: 100%;
+  margin-top: 30px;
+
+  .message-sender-top {
+    display: flex;
+    border-bottom: 1px solid $icon_hover;
+    padding: 15px;
+
+    form {
+      flex: 1;
+      display: flex;
+
+      input {
+        outline-width: 0;
+        border: none;
+        margin: 0 10px;
+        padding: 5px 20px;
+        border-radius: 33px;
+        background-color: $icon_hover;
+      }
+      .message-sender-input {
+        flex: 1;
+      }
+
+      button {
+        display: none;
+      }
+    }
+  }
+  .message-sender-bottom {
+    @include displayCenter(space-evenly);
+    .message-sender-option {
+      padding: 20px;
+      @include displayCenter(center);
+      color: $icon_color;
+      margin: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: $icon_hover;
+        border-radius: 20px;
+      }
+      h3 {
+        font-size: medium;
+        margin-left: 10px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+// Post
+
+.post {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 15px;
+  background-color: $main_bg;
+  box-shadow: $box_shadow;
+
+  .post-top {
+    @include displayCenter(inherit);
+    position: relative;
+    padding: 15px;
+
+    .post-avatar {
+      margin-right: 15px;
+    }
+
+    .post-top-info {
+      h3 {
+        font-size: medium;
+      }
+
+      p {
+        font-size: small;
+        color: $icon_color;
+      }
+    }
+  }
+  .post-bottom {
+    margin: 10px 0 10px 0;
+    padding: 15px 25px;
+  }
+  .post-image {
+    img {
+      width: 100%;
+    }
+  }
+  .post-options {
+    border-top: 1px solid $icon_hover;
+    @include displayCenter(space-evenly);
+    font-size: medium;
+    color: $icon_color;
+    cursor: pointer;
+    padding: 15px;
+    .post-option {
+      // padding-top: 10px;
+      @include displayCenter(center);
+      padding: 5px;
+      flex: 1;
+      &:hover {
+        background-color: $icon_hover;
+        border-radius: 10px;
+      }
+
+      p {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+// Login
+.login {
+  @include displayCenter(space-evenly);
+  padding: 0 20px;
+  flex-wrap: wrap;
+  height: 100vh;
+  background-color: $main_bg;
+
+  .login-left {
+    max-width: 500px;
+    img {
+      margin-left: -40px;
+    }
+    h2 {
+      color: $icon_color;
+      font-size: 28px;
+      font-weight: 400;
+    }
+  }
+
+  .login-right {
+    @include displayCenter(center);
+    flex-direction: column;
+
+    img {
+      height: 100px;
+      margin-bottom: 50px;
+    }
+
+    button {
+      outline: none;
+      border: none;
+      background-color: $brand_color;
+      color: $main_bg;
+      padding: 1em 5em;
+      display: inline-block;
+      cursor: pointer;
+      text-transform: uppercase;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+  }
+}
+
+// Media Quires
+
+@media screen and(max-width: 750px) {
+  .login {
+    text-align: center;
+    .login-left {
+      max-width: 100%;
+      img {
+        margin: 0;
+        width: 70%;
+      }
+      order: 2;
+      h2 {
+        font-size: 15px;
+        // padding: 0 30px;
+      }
+    }
+    .login-right {
+      order: 1;
+    }
+  }
+}

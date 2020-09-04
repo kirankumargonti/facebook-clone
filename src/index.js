@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import {FacebookProvider} from './Context/context';
+import reducer, {initialState} from './Context/reducer';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FacebookProvider initialState={initialState} reducer={reducer}>
+      <App />
+    </FacebookProvider>
   </React.StrictMode>,
+
   document.getElementById('root')
 );
 
