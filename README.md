@@ -1,9 +1,9 @@
-# Facebook Clone With React
+# Facebook Clone With React( Hooks + Context API) and Firebase Authentication
 
 #### Live Project: https://facebook-clone-96271.web.app/
 
-## Demo
-![demo]()
+## SnapShot
+![picture](https://res.cloudinary.com/kirankumargonti/image/upload/v1599566713/GituHub/facebook_ikpj8z.png)
 
 ## Quick Start
 
@@ -16,8 +16,6 @@
     # Serve on localhost:3000
     npm start
 
-    # Build for production
-    npm run build
 
 ## Project Setup
 
